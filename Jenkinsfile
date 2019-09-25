@@ -5,7 +5,7 @@ pipeline {
         stage('Build') { 
             steps { 
                 echo $spring_profile $jar_path $jar_name
-                #发送包到目标服务器
+            //    #发送包到目标服务器
                 ssh ${host} bash /server/scripts/stop.sh $JOB_NAME $jar_name $jar_path ${spring_profile}
                 scp /var/lib/jenkins/workspace/${JOB_NAME}/${project_name}/target/${jar_name} $host:/${jar_path}/${JOB_NAME}
 
