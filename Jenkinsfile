@@ -9,7 +9,7 @@ pipeline {
                 ssh ${host} bash /server/scripts/stop.sh $JOB_NAME $jar_name $jar_path ${spring_profile}
                 scp /var/lib/jenkins/workspace/${JOB_NAME}/${project_name}/target/${jar_name} $host:/${jar_path}/${JOB_NAME}
 
-                #远程启动命令
+           //   #远程启动命令
                 #!/bin/bash
                 ssh -tt ${host} << eeooff
                 cd /${jar_path}/${JOB_NAME}/ 
